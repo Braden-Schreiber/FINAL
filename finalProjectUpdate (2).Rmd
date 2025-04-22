@@ -1,0 +1,77 @@
+---
+title: "Ultra Runner Project"
+author: "Brady Nelson, Braden Schreiber"
+output: html_document
+---
+
+# Introduction
+
+The data set contains trends in ultra running over the last 23 years. 5,010,730 results have been collected from 15,451 ultra running events. This is so interesting because it is the most extensive study done on running and shows us difference is participants and events by different countries and time periods.
+
+The following code chunk loads in the packages that we will use for our project:
+```{r}
+install.packages('readr')
+install.packages('dplyr')
+
+library(readr)
+library(dplyr)
+```
+
+The following code chunk loads in the data that we will use for our project:
+```{r}
+url <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-26/race.csv"
+race_data <- read.csv(url)
+
+```
+
+
+# Data Description
+
+```{r}
+str(race_data)
+head(race_data)
+```
+
+
+The data set contains 1207 observations of 13 variables.
+
+race_year_id        int        this is a key for the exact event
+event               chr        this is the name of the event 
+race                chr        this is the name of the race
+city                chr        this is the city that the race takes place in
+country             chr        this is the country that the race takes place in
+date                chr        this is the date of the race
+start_time          chr        this is the start time of the race
+participation       chr        this is the type of participant in the race, solo or team
+distance            num        this is the distance of the race
+elevation_gain      int        this is the gained elevation of the race
+elevation_loss      int        this is the elevation lossed during the race
+aid_stations        int        this is the number of aid stations throughout the race
+participants        int        this is the number of participants in the race
+
+
+# Data Wrangling
+
+```{r}
+race_data <- race_data %>%
+  mutate(net_elevation = elevation_gain - elevation_loss)
+head(race_data)
+```
+This code chunk adds another variable: net_elevation. This variable tells us more about the elevation of the race than before.
+
+
+# Combining Data Sets
+```{r}
+
+
+```
+
+
+# Data Exploration
+
+
+# Initial Thoughts
+
+We are planning on focusing on the numbers of participants from each country as well as how they change throughout the years. We could join the data by country, and in this way we could plot over time to see changes by country.
+
+We will focus on the variables country, date, and participants. We hypothesize that there is a significant difference in participation by country, meaning some countries participate significantally more than others.
