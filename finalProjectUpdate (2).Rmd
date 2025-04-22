@@ -65,9 +65,13 @@ This code chunk adds another variable: net_elevation. This variable tells us mor
 
 
 ```
-
+We think that the new dataset will be helpful to look at other factors that go into running and connect them based on the race year id
 
 # Data Exploration
+```{r}
+
+
+```
 
 
 # Initial Thoughts
